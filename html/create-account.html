@@ -237,6 +237,7 @@ async function addUser(formData) {
     try {
         const docRef = await addDoc(collection(db, "users"), {
             name: formData.fullName,
+            password: formData.password,
             email: formData.email,
             phone: formData.phone,
             role: formData.role,
