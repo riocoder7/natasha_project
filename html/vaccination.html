@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Schedule - KidsCare Pediatric Clinic</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .nav-links li a {
+            font-size: 1.1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .card-text {
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .footer h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer p, .footer ul li a {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1 style="font-family: 'Comic Neue', cursive; font-size: 2.5rem; color: #ff4500;">Kids Care Clinic</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="vaccination.html">Vaccination</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="login.html" class="nav-login-btn">👋 Login</a>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="vaccination-section" style="margin-top: 80px; padding: 2rem;">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="mb-3" style="color: var(--primary-color);">Vaccination Schedule 💉</h2>
+                <p class="lead">Keeping your child healthy with our comprehensive vaccination program</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="table-responsive vaccination-table">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Vaccine Name</th>
+                                    <th>Dosage</th>
+                                    <th>Administration</th>
+                                    <th>Protection Against</th>
+                                    <th>Potential Side Effects</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>At Birth</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Bacillus Calmette Guerin (BCG)</td>
+                                    <td>Single dose</td>
+                                    <td>Injection (upper arm)</td>
+                                    <td>Tuberculosis</td>
+                                    <td>Soreness, discharge, high temperature, headache, swollen glands</td>
+                                </tr>
+                                <tr>
+                                    <td>Oral Polio Vaccine (OPV) – 0 dose</td>
+                                    <td>First dose</td>
+                                    <td>Oral</td>
+                                    <td>Poliovirus</td>
+                                    <td>No common side effects</td>
+                                </tr>
+                                <tr>
+                                    <td>Hepatitis B birth dose</td>
+                                    <td>Single dose</td>
+                                    <td>Injection</td>
+                                    <td>Hepatitis B</td>
+                                    <td>Redness, soreness, rare side effects</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>6 Weeks</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Oral Polio Vaccine (OPV) - 1</td>
+                                    <td>Second dose</td>
+                                    <td>Oral</td>
+                                    <td>Poliovirus</td>
+                                    <td>No common side effects</td>
+                                </tr>
+                                <tr>
+                                    <td>Pentavalent - 1</td>
+                                    <td>First dose</td>
+                                    <td>Injection</td>
+                                    <td>Diphtheria, Pertussis, Tetanus, Hepatitis B, Hib</td>
+                                    <td>Swelling, redness, pain, fever (1-3 days)</td>
+                                </tr>
+                                <tr>
+                                    <td>Rotavirus Vaccine (RVV) - 1</td>
+                                    <td>First dose</td>
+                                    <td>Oral</td>
+                                    <td>Rotavirus (diarrhea)</td>
+                                    <td>Rare, mild (diarrhea, vomiting, irritation)</td>
+                                </tr>
+                                <tr>
+                                    <td>Pneumococcal Conjugate Vaccine (PCV) - 1</td>
+                                    <td>First dose</td>
+                                    <td>Injection</td>
+                                    <td>Meningitis, septicemia, pneumonia</td>
+                                    <td>Redness, swelling, pain, fever, loss of appetite, irritability, headache, muscle/joint pain, chills</td>
+                                </tr>
+                                <tr>
+                                    <td>Inactivated Polio Vaccine (fIPV) - 1</td>
+                                    <td>First dose</td>
+                                    <td>Injection</td>
+                                    <td>Poliovirus</td>
+                                    <td>Soreness, fever</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>10 Weeks</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Pentavalent - 2</td>
+                                    <td>Second dose</td>
+                                    <td>Injection</td>
+                                    <td>Diphtheria, Pertussis, Tetanus, Hepatitis B, Hib</td>
+                                    <td>Swelling, redness, pain, fever (1-3 days)</td>
+                                </tr>
+                                <tr>
+                                    <td>Oral Polio Vaccine (OPV) - 2</td>
+                                    <td>Third dose</td>
+                                    <td>Oral</td>
+                                    <td>Poliovirus</td>
+                                    <td>No common side effects</td>
+                                </tr>
+                                <tr>
+                                    <td>Rotavirus Vaccine (RVV) - 2</td>
+                                    <td>Second dose</td>
+                                    <td>Oral</td>
+                                    <td>Rotavirus (diarrhea)</td>
+                                    <td>Rare, mild (diarrhea, vomiting, irritation)</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>14 Weeks</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Pentavalent - 3</td>
+                                    <td>Last dose</td>
+                                    <td>Injection</td>
+                                    <td>Diphtheria, Pertussis, Tetanus, Hepatitis B, Hib</td>
+                                    <td>Swelling, redness, pain, fever (1-3 days)</td>
+                                </tr>
+                                <tr>
+                                    <td>Oral Polio Vaccine (OPV) - 3</td>
+                                    <td>Last dose</td>
+                                    <td>Oral</td>
+                                    <td>Poliovirus</td>
+                                    <td>No common side effects</td>
+                                </tr>
+                                <tr>
+                                    <td>Rotavirus Vaccine (RVV) - 3</td>
+                                    <td>Last dose</td>
+                                    <td>Oral</td>
+                                    <td>Rotavirus (diarrhea)</td>
+                                    <td>Rare, mild (diarrhea, vomiting, irritation)</td>
+                                </tr>
+                                <tr>
+                                    <td>Pneumococcal Conjugate Vaccine (PCV) - 2</td>
+                                    <td>Second dose</td>
+                                    <td>Injection</td>
+                                    <td>Meningitis, septicemia, pneumonia</td>
+                                    <td>Redness, swelling, pain, fever, loss of appetite, irritability, headache, muscle/joint pain, chills</td>
+                                </tr>
+                                <tr>
+                                    <td>Inactivated Polio Vaccine (fIPV) - 2</td>
+                                    <td>Final dose</td>
+                                    <td>Injection</td>
+                                    <td>Poliovirus</td>
+                                    <td>Soreness, fever</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>9-12 Months</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Measles & Rubella (MR) - 1</td>
+                                    <td>First dose</td>
+                                    <td>Injection</td>
+                                    <td>Measles, Rubella</td>
+                                    <td>Redness, swelling, mild fever (7-11 days)</td>
+                                </tr>
+                                <tr>
+                                    <td>Japanese Encephalitis (JE-1)</td>
+                                    <td>First dose</td>
+                                    <td>Injection</td>
+                                    <td>Japanese Encephalitis</td>
+                                    <td>Fever (rare), headache, muscle pain, swelling, redness</td>
+                                </tr>
+                                <tr>
+                                    <td>Pneumococcal Conjugate Vaccine - Booster</td>
+                                    <td>Single dose</td>
+                                    <td>Injection</td>
+                                    <td>Pneumonia, ear infections, sinus infections, meningitis, bacteremia</td>
+                                    <td>Redness, swelling, irritability, fever, loss of appetite, increased crying</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>16-24 Months</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Measles & Rubella (MR) - 2</td>
+                                    <td>Second dose</td>
+                                    <td>Injection</td>
+                                    <td>Measles, Rubella</td>
+                                    <td>Redness, swelling, mild fever (7-11 days)</td>
+                                </tr>
+                                <tr>
+                                    <td>Japanese Encephalitis (JE-2)</td>
+                                    <td>Final dose</td>
+                                    <td>Injection</td>
+                                    <td>Japanese Encephalitis</td>
+                                    <td>Fever (rare), headache, muscle pain, swelling, redness</td>
+                                </tr>
+                                <tr>
+                                    <td>Diphtheria Pertussis & Tetanus (DPT) - Booster 1</td>
+                                    <td>First dose</td>
+                                    <td>Injection</td>
+                                    <td>Diphtheria, Pertussis, Tetanus</td>
+                                    <td>Soreness, swelling, fever, irritation, exhaustion, vomiting</td>
+                                </tr>
+                                <tr>
+                                    <td>Oral Polio Vaccine – Booster</td>
+                                    <td>Single dose</td>
+                                    <td>Oral</td>
+                                    <td>Poliovirus</td>
+                                    <td>No common side effects</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>5-6 Years</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Diphtheria Pertussis & Tetanus (DPT) - Booster 2</td>
+                                    <td>Second dose</td>
+                                    <td>Injection</td>
+                                    <td>Diphtheria, Pertussis, Tetanus</td>
+                                    <td>Soreness, swelling, fever, irritation, exhaustion, vomiting</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>10 Years</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Tetanus & adult Diphtheria (Td)</td>
+                                    <td>Single dose</td>
+                                    <td>Injection</td>
+                                    <td>Tetanus, Diphtheria</td>
+                                    <td>Pain, redness, swelling, mild fever, headache, exhaustion, nausea, vomiting, stomachache</td>
+                                </tr>
+
+                                <tr class="table-secondary">
+                                    <td colspan="5"><strong>16 Years</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Tetanus & adult Diphtheria (Td)</td>
+                                    <td>Single dose</td>
+                                    <td>Injection</td>
+                                    <td>Tetanus, Diphtheria</td>
+                                    <td>Pain, redness, swelling, mild fever, headache, exhaustion, nausea, vomiting, stomachache</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="cta-button" data-bs-toggle="modal" data-bs-target="#vaccinationModal">
+                            🎯 Schedule Vaccination
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="vaccination-info card">
+                        <div class="card-body">
+                            <h3 class="card-title" style="color: var(--primary-color);">Why Vaccinate? 🤔</h3>
+                            <div class="vaccination-image mt-4 mb-4">
+                                <img src="https://patients.eaaci.org/wp-content/uploads/2019/10/Final-infographic1.png"
+                                     alt="Vaccination Benefits Infographic" 
+                                     class="img-fluid rounded shadow"
+                                     style="width: 100%; object-fit: contain;">
+                            </div>
+                            <ul class="vaccination-benefits">
+                                <li>✅ Protects against serious diseases</li>
+                                <li>✅ Prevents spread of infections</li>
+                                <li>✅ Builds immunity naturally</li>
+                                <li>✅ Safe and scientifically proven</li>
+                                <li>✅ Recommended by pediatricians</li>
+                                <li>✅ Essential for child's growth</li>
+                                <li>✅ Prevents future health complications</li>
+                                <li>✅ Cost-effective healthcare measure</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <p class="text-muted fst-italic">
+                                    "Vaccination is one of the most effective ways to protect your child's health for a lifetime."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vaccination Booking Modal -->
+    <div class="modal fade" id="vaccinationModal" tabindex="-1" aria-labelledby="vaccinationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="vaccinationModalLabel">Schedule Vaccination 💉</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="vaccinationForm">
+                        <div class="mb-3">
+                            <label for="childName" class="form-label">👶 Child's Name</label>
+                            <input type="text" class="form-control" id="childName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="parentName" class="form-label">👥 Parent's Name</label>
+                            <input type="text" class="form-control" id="parentName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">📧 Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">📱 Phone</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vaccine" class="form-label">💉 Select Vaccine</label>
+                            <select class="form-control" id="vaccine" required>
+                                <option value="">Choose a vaccine...</option>
+                                <optgroup label="Available Vaccines">
+                                    <option value="bcg">Bacillus Calmette Guerin (BCG)</option>
+                                    <option value="opv0">Oral Polio Vaccine (OPV) – 0 dose</option>
+                                    <option value="hepb">Hepatitis B birth dose</option>
+                                    <option value="opv1">Oral Polio Vaccine (OPV) - 1</option>
+                                    <option value="penta1">Pentavalent - 1</option>
+                                    <option value="rvv1">Rotavirus Vaccine (RVV) - 1</option>
+                                    <option value="pcv1">Pneumococcal Conjugate Vaccine (PCV) - 1</option>
+                                    <option value="ipv1">Inactivated Polio Vaccine (fIPV) - 1</option>
+                                    <option value="penta2">Pentavalent - 2</option>
+                                    <option value="opv2">Oral Polio Vaccine (OPV) - 2</option>
+                                    <option value="rvv2">Rotavirus Vaccine (RVV) - 2</option>
+                                    <option value="penta3">Pentavalent - 3</option>
+                                    <option value="opv3">Oral Polio Vaccine (OPV) - 3</option>
+                                    <option value="rvv3">Rotavirus Vaccine (RVV) - 3</option>
+                                    <option value="pcv2">Pneumococcal Conjugate Vaccine (PCV) - 2</option>
+                                    <option value="ipv2">Inactivated Polio Vaccine (fIPV) - 2</option>
+                                    <option value="mr1">Measles & Rubella (MR) - 1</option>
+                                    <option value="je1">Japanese Encephalitis (JE-1)</option>
+                                    <option value="pcvb">Pneumococcal Conjugate Vaccine - Booster</option>
+                                    <option value="mr2">Measles & Rubella (MR) - 2</option>
+                                    <option value="je2">Japanese Encephalitis (JE-2)</option>
+                                    <option value="dpt1">Diphtheria Pertussis & Tetanus (DPT) - Booster 1</option>
+                                    <option value="opvb">Oral Polio Vaccine – Booster</option>
+                                    <option value="dpt2">Diphtheria Pertussis & Tetanus (DPT) - Booster 2</option>
+                                    <option value="td">Tetanus & adult Diphtheria (Td)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">📅 Preferred Date</label>
+                            <input type="date" 
+                                   class="form-control" 
+                                   id="date" 
+                                   required
+                                   min="" // Will be set by JavaScript
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <label for="documentUpload" class="form-label">📎 Upload Documents (Optional)</label>
+                            <div class="upload-area" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin-top: 10px; cursor: pointer;">
+                                <input type="file" id="documentUpload" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none;">
+                                <i class="fas fa-cloud-upload-alt" style="font-size: 2em; color: #666;"></i>
+                                <p>Drag & Drop Files Here or Click to Select</p>
+                                <p class="text-muted small">Supported formats: PDF, DOC, DOCX, JPG, PNG</p>
+                            </div>
+                            <div id="fileList" class="mt-2"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="vaccinationForm" class="btn btn-primary">Schedule Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal for Vaccination -->
+    <div class="modal fade" id="vaccinationSuccessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-check-circle"></i> Vaccination Scheduled Successfully!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your vaccination has been successfully scheduled. We'll send you a confirmation email shortly.</p>
+                    
+                    <div class="appointment-details bg-light p-4 rounded">
+                        <p><strong>Child's Name:</strong> <span id="confirmChildName"></span></p>
+                        <p><strong>Vaccine:</strong> <span id="confirmVaccine"></span></p>
+                        <p><strong>Date:</strong> <span id="confirmDate"></span></p>
+                        <p><strong>Time:</strong> <span id="confirmTime"></span></p>
+                        <p><strong>Contact:</strong> <span id="confirmContact"></span></p>
+                    </div>
+                    <div class="alert alert-info mt-3">
+                        <p>📝 After vaccination, please remember to upload the vaccination proof in the 
+                        <a href="documents.html">Documents section</a>.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>KidsCare Pediatric Clinic</h3>
+                <p>Providing quality healthcare for children since 2000</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/KidsCarePediatric" target="_blank" title="Follow us on Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/KidsCarePedia" target="_blank" title="Follow us on Twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/kidscare_pediatric" target="_blank" title="Follow us on Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/kidscare-pediatric" target="_blank" title="Connect on LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KidsCare Pediatric Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Handle drag and drop file upload
+        const uploadArea = document.querySelector('.upload-area');
+        const fileInput = document.getElementById('documentUpload');
+        const fileList = document.getElementById('fileList');
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#4CAF50';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#ccc';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#ccc';
+            fileInput.files = e.dataTransfer.files;
+            updateFileList();
+        });
+
+        fileInput.addEventListener('change', updateFileList);
+
+        function updateFileList() {
+            fileList.innerHTML = '';
+            Array.from(fileInput.files).forEach(file => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'alert alert-info alert-dismissible fade show';
+                fileItem.innerHTML = `
+                    <i class="fas fa-file"></i> ${file.name}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        }
+
+        // Check authentication status
+        document.addEventListener('DOMContentLoaded', function() {
+            const vaccinationForm = document.getElementById('vaccinationForm');
+            
+            // Pre-fill child name if coming from dashboard
+            const urlParams = new URLSearchParams(window.location.search);
+            const childName = urlParams.get('child');
+            if (childName) {
+                document.getElementById('childName').value = childName;
+            }
+            
+            vaccinationForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Check if user is logged in
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (!user) {
+                    alert('Please login to schedule a vaccination');
+                    window.location.href = 'login.html';
+                    return;
+                }
+                
+                const formData = {
+                    id: Date.now(),
+                    childName: document.getElementById('childName').value,
+                    parentName: document.getElementById('parentName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    vaccine: document.getElementById('vaccine').options[document.getElementById('vaccine').selectedIndex].text,
+                    date: document.getElementById('date').value,
+                    time: '10:00 AM',
+                    status: 'Scheduled',
+                    parentId: user.id
+                };
+
+                // Store in localStorage
+                let vaccinations = JSON.parse(localStorage.getItem('vaccinations') || '[]');
+                vaccinations.push(formData);
+                localStorage.setItem('vaccinations', JSON.stringify(vaccinations));
+
+                // Handle file uploads if any
+                const fileInput = document.getElementById('documentUpload');
+                if (fileInput.files.length > 0) {
+                    const pendingUploads = JSON.parse(localStorage.getItem('pendingUploads') || '[]');
+                    pendingUploads.push({
+                        type: 'vaccination',
+                        childName: formData.childName,
+                        vaccineName: formData.vaccine,
+                        date: formData.date,
+                        location: 'KidsCare Pediatric Clinic',
+                        hasDocuments: true
+                    });
+                    localStorage.setItem('pendingUploads', JSON.stringify(pendingUploads));
+
+                    // Redirect to documents page after showing success modal
+                    const successModal = new bootstrap.Modal(document.getElementById('vaccinationSuccessModal'));
+                    successModal.show();
+                    document.getElementById('vaccinationSuccessModal').addEventListener('hidden.bs.modal', function () {
+                        window.location.href = 'documents.html';
+                    });
+                } else {
+                    // Show regular success modal
+                    const successModal = new bootstrap.Modal(document.getElementById('vaccinationSuccessModal'));
+                    successModal.show();
+                }
+
+                // Update confirmation modal with details
+                document.getElementById('confirmChildName').textContent = formData.childName;
+                document.getElementById('confirmVaccine').textContent = formData.vaccine;
+                document.getElementById('confirmDate').textContent = new Date(formData.date).toLocaleDateString();
+                document.getElementById('confirmTime').textContent = formData.time;
+                document.getElementById('confirmContact').textContent = formData.phone;
+
+                // Reset form
+                this.reset();
+                document.getElementById('fileList').innerHTML = '';
+            });
+        });
+    </script>
+</body>
+</html> 

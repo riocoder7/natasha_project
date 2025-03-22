@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know The Diseases - KidsCare Pediatric Clinic</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .nav-links li a {
+            font-size: 1.1rem;
+        }
+
+        .disease-section {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+
+        .disease-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .disease-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .disease-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .disease-content {
+            padding: 1.5rem;
+        }
+
+        .symptom-list, .prevention-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .symptom-list li, .prevention-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .symptom-list li:before, .prevention-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .age-group-tabs {
+            margin-bottom: 2rem;
+        }
+
+        .footer {
+            font-family: 'Comic Neue', cursive;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1 style="font-family: 'Comic Neue', cursive; font-size: 2.5rem; color: #ff4500;">Kids Care Clinic</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="vaccination.html">Vaccination</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="login.html" class="nav-login-btn">👋 Login</a>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="disease-section">
+        <div class="container">
+            <h2 class="text-center mb-4" style="color: var(--primary-color);">Common Childhood Diseases 🏥</h2>
+            
+            <!-- Age Group Tabs -->
+            <ul class="nav nav-tabs age-group-tabs" id="ageGroupTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="infant-tab" data-bs-toggle="tab" data-bs-target="#infant" type="button" role="tab">
+                        👶 Infants (0-1 year)
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="toddler-tab" data-bs-toggle="tab" data-bs-target="#toddler" type="button" role="tab">
+                        🧸 Toddlers (1-3 years)
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="preschool-tab" data-bs-toggle="tab" data-bs-target="#preschool" type="button" role="tab">
+                        🎨 Preschool (3-5 years)
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="school-tab" data-bs-toggle="tab" data-bs-target="#school" type="button" role="tab">
+                        📚 School Age (5-16 years)
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Infants Tab -->
+                <div class="tab-pane fade show active" id="infant" role="tabpanel">
+                    <div class="row">
+                        <!-- Common Cold -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🤧 Common Cold</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Runny or stuffy nose</li>
+                                        <li>Coughing</li>
+                                        <li>Sneezing</li>
+                                        <li>Fever (sometimes)</li>
+                                        <li>Irritability</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Regular hand washing</li>
+                                        <li>Keep baby away from sick people</li>
+                                        <li>Clean and disinfect toys</li>
+                                        <li>Proper ventilation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RSV -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🦠 Respiratory Syncytial Virus (RSV)</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Wheezing</li>
+                                        <li>Rapid breathing</li>
+                                        <li>Difficulty feeding</li>
+                                        <li>Lethargy</li>
+                                        <li>Fever</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Limit contact with sick people</li>
+                                        <li>Frequent hand washing</li>
+                                        <li>Clean surfaces regularly</li>
+                                        <li>Breastfeeding when possible</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Colic -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>😢 Colic</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Intense crying</li>
+                                        <li>Fussiness</li>
+                                        <li>Difficulty sleeping</li>
+                                        <li>Clenched fists</li>
+                                        <li>Arched back</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Proper feeding techniques</li>
+                                        <li>Burping after feeds</li>
+                                        <li>Gentle rocking</li>
+                                        <li>White noise therapy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jaundice -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🟡 Jaundice</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Yellow skin and eyes</li>
+                                        <li>Poor feeding</li>
+                                        <li>Lethargy</li>
+                                        <li>Dark urine</li>
+                                        <li>High-pitched crying</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Regular feeding</li>
+                                        <li>Proper breastfeeding</li>
+                                        <li>Regular check-ups</li>
+                                        <li>Monitor bilirubin levels</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diaper Rash -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>👶 Diaper Rash</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Red, inflamed skin</li>
+                                        <li>Bumps or blisters</li>
+                                        <li>Scaling or peeling</li>
+                                        <li>Pain or discomfort</li>
+                                        <li>Fussiness</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Frequent diaper changes</li>
+                                        <li>Gentle cleaning</li>
+                                        <li>Use barrier creams</li>
+                                        <li>Allow air exposure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cradle Cap -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>👶 Cradle Cap</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Greasy, scaly patches</li>
+                                        <li>Yellow or brown scales</li>
+                                        <li>Redness</li>
+                                        <li>Hair loss in affected areas</li>
+                                        <li>Mild itching</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Regular gentle washing</li>
+                                        <li>Use mild baby shampoo</li>
+                                        <li>Brush with soft brush</li>
+                                        <li>Keep scalp clean</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toddlers Tab -->
+                <div class="tab-pane fade" id="toddler" role="tabpanel">
+                    <div class="row">
+                        <!-- Hand, Foot, and Mouth Disease -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>👋 Hand, Foot, and Mouth Disease</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Fever</li>
+                                        <li>Sore throat</li>
+                                        <li>Painful blisters in mouth</li>
+                                        <li>Rash on hands and feet</li>
+                                        <li>Loss of appetite</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Good hygiene practices</li>
+                                        <li>Regular hand washing</li>
+                                        <li>Clean toys and surfaces</li>
+                                        <li>Avoid close contact with infected children</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ear Infections -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>👂 Ear Infections</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Ear pain</li>
+                                        <li>Fever</li>
+                                        <li>Difficulty sleeping</li>
+                                        <li>Pulling at ears</li>
+                                        <li>Fluid drainage</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Keep ears dry</li>
+                                        <li>Proper bottle feeding position</li>
+                                        <li>Regular check-ups</li>
+                                        <li>Treat colds promptly</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Roseola -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🌹 Roseola</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>High fever</li>
+                                        <li>Pink rash</li>
+                                        <li>Irritability</li>
+                                        <li>Swollen lymph nodes</li>
+                                        <li>Loss of appetite</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Good hygiene</li>
+                                        <li>Avoid contact with sick children</li>
+                                        <li>Regular hand washing</li>
+                                        <li>Clean toys and surfaces</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Croup -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🫁 Croup</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Barking cough</li>
+                                        <li>Hoarse voice</li>
+                                        <li>Difficulty breathing</li>
+                                        <li>Fever</li>
+                                        <li>Stridor (high-pitched sound)</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Regular hand washing</li>
+                                        <li>Avoid sick contacts</li>
+                                        <li>Keep child hydrated</li>
+                                        <li>Humidify air</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fifth Disease -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🔴 Fifth Disease</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Red rash on cheeks</li>
+                                        <li>Lace-like rash on body</li>
+                                        <li>Low-grade fever</li>
+                                        <li>Joint pain</li>
+                                        <li>Headache</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Good hand hygiene</li>
+                                        <li>Avoid sharing utensils</li>
+                                        <li>Cover mouth when coughing</li>
+                                        <li>Regular check-ups</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Impetigo -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🦠 Impetigo</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Red sores</li>
+                                        <li>Honey-colored crusts</li>
+                                        <li>Itching</li>
+                                        <li>Swollen lymph nodes</li>
+                                        <li>Fever (sometimes)</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Keep skin clean</li>
+                                        <li>Treat cuts and scrapes</li>
+                                        <li>Don't share towels</li>
+                                        <li>Regular hand washing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preschool Tab -->
+                <div class="tab-pane fade" id="preschool" role="tabpanel">
+                    <div class="row">
+                        <!-- Chickenpox -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🔴 Chickenpox</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Itchy rash</li>
+                                        <li>Flu-like symptoms</li>
+                                        <li>Blisters that scab over</li>
+                                        <li>Fever</li>
+                                        <li>Loss of appetite</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Vaccination</li>
+                                        <li>Avoid contact with infected children</li>
+                                        <li>Good hygiene practices</li>
+                                        <li>Regular hand washing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Strep Throat -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🦠 Strep Throat</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Severe sore throat</li>
+                                        <li>Fever</li>
+                                        <li>Swollen tonsils</li>
+                                        <li>White patches in throat</li>
+                                        <li>Difficulty swallowing</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Good hand hygiene</li>
+                                        <li>Avoid sharing utensils</li>
+                                        <li>Cover mouth when coughing</li>
+                                        <li>Regular check-ups</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Asthma -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🫁 Asthma</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Wheezing</li>
+                                        <li>Coughing</li>
+                                        <li>Shortness of breath</li>
+                                        <li>Chest tightness</li>
+                                        <li>Difficulty sleeping</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Avoid triggers</li>
+                                        <li>Use prescribed medications</li>
+                                        <li>Regular check-ups</li>
+                                        <li>Keep environment clean</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADHD -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🧠 ADHD</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Inattention</li>
+                                        <li>Hyperactivity</li>
+                                        <li>Impulsivity</li>
+                                        <li>Difficulty focusing</li>
+                                        <li>Organization problems</li>
+                                    </ul>
+                                    <h4>Management:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Behavioral therapy</li>
+                                        <li>Regular exercise</li>
+                                        <li>Structured routine</li>
+                                        <li>Parent education</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Food Allergies -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🥜 Food Allergies</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Hives or rash</li>
+                                        <li>Swelling</li>
+                                        <li>Difficulty breathing</li>
+                                        <li>Vomiting</li>
+                                        <li>Anaphylaxis (severe)</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Read food labels</li>
+                                        <li>Carry epinephrine</li>
+                                        <li>Inform caregivers</li>
+                                        <li>Avoid cross-contamination</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sleep Disorders -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>😴 Sleep Disorders</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Difficulty falling asleep</li>
+                                        <li>Night terrors</li>
+                                        <li>Sleepwalking</li>
+                                        <li>Snoring</li>
+                                        <li>Daytime sleepiness</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Regular bedtime routine</li>
+                                        <li>Limit screen time</li>
+                                        <li>Create sleep-friendly environment</li>
+                                        <li>Regular exercise</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School Age Tab -->
+                <div class="tab-pane fade" id="school" role="tabpanel">
+                    <div class="row">
+                        <!-- Flu -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🤒 Influenza (Flu)</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>High fever</li>
+                                        <li>Body aches</li>
+                                        <li>Fatigue</li>
+                                        <li>Cough</li>
+                                        <li>Sore throat</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Annual flu vaccination</li>
+                                        <li>Good hand hygiene</li>
+                                        <li>Cover mouth when coughing</li>
+                                        <li>Stay home when sick</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pink Eye -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>👁️ Pink Eye (Conjunctivitis)</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Red, itchy eyes</li>
+                                        <li>Eye discharge</li>
+                                        <li>Swollen eyelids</li>
+                                        <li>Light sensitivity</li>
+                                        <li>Blurred vision</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Don't touch eyes</li>
+                                        <li>Don't share towels</li>
+                                        <li>Wash hands frequently</li>
+                                        <li>Clean contact lenses properly</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mononucleosis -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>😴 Mononucleosis (Mono)</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Extreme fatigue</li>
+                                        <li>Sore throat</li>
+                                        <li>Swollen lymph nodes</li>
+                                        <li>Fever</li>
+                                        <li>Enlarged spleen</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Avoid sharing drinks and utensils</li>
+                                        <li>Don't share toothbrushes</li>
+                                        <li>Practice good hygiene</li>
+                                        <li>Get adequate rest</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Acne -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>👤 Acne</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Symptoms:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Pimples and blackheads</li>
+                                        <li>Whiteheads</li>
+                                        <li>Red, inflamed skin</li>
+                                        <li>Oily skin</li>
+                                        <li>Scarring (in severe cases)</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Regular face washing</li>
+                                        <li>Keep hands away from face</li>
+                                        <li>Use non-comedogenic products</li>
+                                        <li>Maintain healthy diet</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sports Injuries -->
+                        <div class="col-md-6">
+                            <div class="disease-card">
+                                <div class="disease-header">
+                                    <h3>🏃 Sports Injuries</h3>
+                                </div>
+                                <div class="disease-content">
+                                    <h4>Common Types:</h4>
+                                    <ul class="symptom-list">
+                                        <li>Sprains and strains</li>
+                                        <li>Fractures</li>
+                                        <li>Concussions</li>
+                                        <li>Overuse injuries</li>
+                                        <li>Growth plate injuries</li>
+                                    </ul>
+                                    <h4>Prevention:</h4>
+                                    <ul class="prevention-list">
+                                        <li>Proper warm-up and stretching</li>
+                                        <li>Use appropriate protective gear</li>
+                                        <li>Follow safety guidelines</li>
+                                        <li>Take regular breaks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>KidsCare Pediatric Clinic</h3>
+                <p>Providing quality healthcare for children since 2000</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/KidsCarePediatric" target="_blank" title="Follow us on Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/KidsCarePedia" target="_blank" title="Follow us on Twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/kidscare_pediatric" target="_blank" title="Follow us on Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/kidscare-pediatric" target="_blank" title="Connect on LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KidsCare Pediatric Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

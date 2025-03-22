@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - KidsCare Clinic</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head> 
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1 style="font-family: 'Comic Neue', cursive; font-size: 2.5rem; color: #ff4500;">Kids Care Clinic Staff</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="vaccination.html">Vaccination</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <a href="login.html" class="nav-login-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Tabs for switching between appointments and vaccinations -->
+        <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="appointments-tab" data-bs-toggle="tab" 
+                        data-bs-target="#appointments" type="button" role="tab">
+                    <i class="fas fa-calendar-check"></i> Appointments
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="vaccinations-tab" data-bs-toggle="tab" 
+                        data-bs-target="#vaccinations" type="button" role="tab">
+                    <i class="fas fa-syringe"></i> Vaccinations
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="newborns-tab" data-bs-toggle="tab" 
+                        data-bs-target="#newborns" type="button" role="tab">
+                    <i class="fas fa-baby"></i> Newborn Records
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab content -->
+        <div class="tab-content" id="dashboardContent">
+            <!-- Appointments Tab -->
+            <div class="tab-pane fade show active" id="appointments" role="tabpanel">
+                <div class="dashboard-header">
+                    <h2>📅 Appointment Management</h2>
+                    <div class="filter-controls">
+                        <input type="date" id="appointmentDateFilter" class="form-control">
+                        <select id="appointmentDoctorFilter" class="form-control">
+                            <option value="">All Doctors</option>
+                            <option value="dr-anjani-parab">Dr. Anjani Parab</option>
+                            <option value="dr-neha-verma">Dr. Neha Verma</option>
+                            <option value="dr-rajesh-kumar">Dr. Rajesh Kumar</option>
+                            <option value="dr-priya-singh">Dr. Priya Singh</option>
+                            <option value="dr-sahil-sharma">Dr. Sahil Sharma</option>
+                            <option value="dr-gauransh-pardhi">Dr. Gauransh Pardhi</option>
+                        </select>
+                        <button id="sendAppointmentReminders" class="btn btn-primary">
+                            <i class="fas fa-bell"></i> Send Reminders
+                        </button>
+                    </div>
+                </div>
+
+                <div class="appointments-table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Child's Name</th>
+                                <th>Age</th>
+                                <th>Doctor</th>
+                                <th>Parent's Contact</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appointmentsList">
+                            <!-- Appointments will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Vaccinations Tab -->
+            <div class="tab-pane fade" id="vaccinations" role="tabpanel">
+                <div class="dashboard-header">
+                    <h2>💉 Vaccination Schedule</h2>
+                    <div class="filter-controls">
+                        <input type="date" id="vaccinationDateFilter" class="form-control">
+                        <select id="vaccinationFilter" class="form-control">
+                            <option value="">All Vaccines</option>
+                            <optgroup label="At Birth">
+                                <option value="bcg">Bacillus Calmette Guerin (BCG)</option>
+                                <option value="opv0">Oral Polio Vaccine (OPV) – 0 dose</option>
+                                <option value="hepb">Hepatitis B birth dose</option>
+                            </optgroup>
+                            <optgroup label="6 Weeks">
+                                <option value="opv1">Oral Polio Vaccine (OPV) - 1</option>
+                                <option value="penta1">Pentavalent - 1</option>
+                                <option value="rvv1">Rotavirus Vaccine (RVV) - 1</option>
+                                <option value="pcv1">Pneumococcal Conjugate Vaccine (PCV) - 1</option>
+                                <option value="ipv1">Inactivated Polio Vaccine (fIPV) - 1</option>
+                            </optgroup>
+                            <optgroup label="10 Weeks">
+                                <option value="penta2">Pentavalent - 2</option>
+                                <option value="opv2">Oral Polio Vaccine (OPV) - 2</option>
+                                <option value="rvv2">Rotavirus Vaccine (RVV) - 2</option>
+                            </optgroup>
+                            <optgroup label="14 Weeks">
+                                <option value="penta3">Pentavalent - 3</option>
+                                <option value="opv3">Oral Polio Vaccine (OPV) - 3</option>
+                                <option value="rvv3">Rotavirus Vaccine (RVV) - 3</option>
+                                <option value="pcv2">Pneumococcal Conjugate Vaccine (PCV) - 2</option>
+                                <option value="ipv2">Inactivated Polio Vaccine (fIPV) - 2</option>
+                            </optgroup>
+                            <optgroup label="9-12 Months">
+                                <option value="mr1">Measles & Rubella (MR) - 1</option>
+                                <option value="je1">Japanese Encephalitis (JE-1)</option>
+                                <option value="pcvb">Pneumococcal Conjugate Vaccine - Booster</option>
+                            </optgroup>
+                            <optgroup label="16-24 Months">
+                                <option value="mr2">Measles & Rubella (MR) - 2</option>
+                                <option value="je2">Japanese Encephalitis (JE-2)</option>
+                                <option value="dpt1">Diphtheria Pertussis & Tetanus (DPT) - Booster 1</option>
+                                <option value="opvb">Oral Polio Vaccine – Booster</option>
+                            </optgroup>
+                            <optgroup label="5-6 Years">
+                                <option value="dpt2">Diphtheria Pertussis & Tetanus (DPT) - Booster 2</option>
+                            </optgroup>
+                            <optgroup label="10 Years & 16 Years">
+                                <option value="td">Tetanus & adult Diphtheria (Td)</option>
+                            </optgroup>
+                        </select>
+                        <button id="sendVaccinationReminders" class="btn btn-primary">
+                            <i class="fas fa-bell"></i> Send Reminders
+                        </button>
+                    </div>
+                </div>
+
+                <div class="vaccinations-table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Child's Name</th>
+                                <th>Parent's Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Vaccine</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vaccinationsList">
+                            <!-- Vaccinations will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Newborns Tab -->
+            <div class="tab-pane fade" id="newborns" role="tabpanel">
+                <div class="dashboard-header">
+                    <h2>👶 Newborn Records Management</h2>
+                    <div class="filter-controls">
+                        <input type="text" id="newbornSearch" class="form-control" placeholder="Search by name or ID...">
+                        <button class="btn btn-primary" onclick="addNewborn()">
+                            <i class="fas fa-plus"></i> Add New Record
+                        </button>
+                    </div>
+                </div>
+
+                <div class="newborns-grid mt-4">
+                    <!-- Newborn records will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reminder Modal -->
+    <div class="modal fade" id="reminderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Send Reminder</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reminderForm">
+                        <div class="mb-3">
+                            <label class="form-label">Message Template:</label>
+                            <textarea class="form-control" id="reminderMessage" rows="4">Dear [Parent], 
+This is a reminder for [Child]'s [Type] with [Doctor] tomorrow at [Time]. 
+Please arrive 10 minutes early.
+Best regards, KidsCare Clinic</textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="sendReminderBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Newborn Modal -->
+    <div class="modal fade" id="newbornModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add/Edit Newborn Record</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newbornForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="newbornName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Date of Birth <span class="required">*</span></label>
+                                <input type="date" class="form-control" id="dateOfBirth" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label>Gender <span class="required">*</span></label>
+                                <select class="form-control" id="gender" required>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label>Blood Group</label>
+                                <select class="form-control" id="bloodGroup">
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label>Weight (kg)</label>
+                                <input type="number" class="form-control" id="weight" step="0.01">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label>Medical Notes</label>
+                                <textarea class="form-control" id="medicalNotes" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label>Parent/Guardian Name <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="parentName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Contact Number <span class="required">*</span></label>
+                                <input type="tel" class="form-control" id="contactNumber" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label>Vaccination Schedule</label>
+                                <div id="vaccinationSchedule" class="border p-3 rounded">
+                                    <!-- Vaccination checkboxes will be added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveNewbornRecord()">Save Record</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load data from localStorage
+        function loadAppointments() {
+            const tbody = document.getElementById('appointmentsList');
+            const dateFilter = document.getElementById('appointmentDateFilter').value;
+            const doctorFilter = document.getElementById('appointmentDoctorFilter').value;
+
+            // Get appointments from localStorage
+            let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+            
+            // Apply filters
+            let filteredAppointments = appointments;
+            if (dateFilter) {
+                filteredAppointments = filteredAppointments.filter(apt => apt.date === dateFilter);
+            }
+            if (doctorFilter) {
+                filteredAppointments = filteredAppointments.filter(apt => apt.doctor.toLowerCase().includes(doctorFilter.toLowerCase()));
+            }
+
+            tbody.innerHTML = filteredAppointments.map(apt => `
+                <tr>
+                    <td>${apt.date}<br>${apt.time}</td>
+                    <td>${apt.childName}</td>
+                    <td>${apt.age}</td>
+                    <td>${apt.doctor}</td>
+                    <td>${apt.parentContact}</td>
+                    <td>${apt.reason}</td>
+                    <td><span class="badge bg-${apt.status === 'Confirmed' ? 'success' : 'warning'}">${apt.status}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="sendReminder(${apt.id}, 'appointment')">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info" onclick="editRecord(${apt.id}, 'appointment')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="cancelRecord(${apt.id}, 'appointment')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function loadVaccinations() {
+            const tbody = document.getElementById('vaccinationsList');
+            const dateFilter = document.getElementById('vaccinationDateFilter').value;
+            const vaccineFilter = document.getElementById('vaccinationFilter').value;
+
+            // Get vaccinations from localStorage
+            let vaccinations = JSON.parse(localStorage.getItem('vaccinations') || '[]');
+            
+            // Apply filters
+            let filteredVaccinations = vaccinations;
+            if (dateFilter) {
+                filteredVaccinations = filteredVaccinations.filter(vac => vac.date === dateFilter);
+            }
+            if (vaccineFilter) {
+                filteredVaccinations = filteredVaccinations.filter(vac => vac.vaccine.toLowerCase().includes(vaccineFilter.toLowerCase()));
+            }
+
+            tbody.innerHTML = filteredVaccinations.map(vac => `
+                <tr>
+                    <td>${vac.date}<br>${vac.time}</td>
+                    <td>${vac.childName}</td>
+                    <td>${vac.parentName}</td>
+                    <td>${vac.email}</td>
+                    <td>${vac.phone}</td>
+                    <td>${vac.vaccine}</td>
+                    <td><span class="badge bg-${vac.status === 'Completed' ? 'success' : 'info'}">${vac.status}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="sendReminder(${vac.id}, 'vaccination')">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info" onclick="editRecord(${vac.id}, 'vaccination')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="cancelRecord(${vac.id}, 'vaccination')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Add functions to handle record management
+        function editRecord(id, type) {
+            const records = JSON.parse(localStorage.getItem(type === 'appointment' ? 'appointments' : 'vaccinations') || '[]');
+            const record = records.find(r => r.id === id);
+            if (record) {
+                // In a real application, you would open an edit modal here
+                alert(`Editing ${type} for ${record.childName}`);
+            }
+        }
+
+        function cancelRecord(id, type) {
+            if (confirm('Are you sure you want to cancel this record?')) {
+                let records = JSON.parse(localStorage.getItem(type === 'appointment' ? 'appointments' : 'vaccinations') || '[]');
+                records = records.filter(r => r.id !== id);
+                localStorage.setItem(type === 'appointment' ? 'appointments' : 'vaccinations', JSON.stringify(records));
+                type === 'appointment' ? loadAppointments() : loadVaccinations();
+            }
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAppointments();
+            loadVaccinations();
+            
+            // Add filter event listeners
+            document.getElementById('appointmentDateFilter').addEventListener('change', loadAppointments);
+            document.getElementById('appointmentDoctorFilter').addEventListener('change', loadAppointments);
+            document.getElementById('vaccinationDateFilter').addEventListener('change', loadVaccinations);
+            document.getElementById('vaccinationFilter').addEventListener('change', loadVaccinations);
+
+            // Add refresh functionality
+            setInterval(() => {
+                loadAppointments();
+                loadVaccinations();
+            }, 30000); // Refresh every 30 seconds
+        });
+
+        // Reminder function
+        function sendReminder(id, type) {
+            const records = JSON.parse(localStorage.getItem(type === 'appointment' ? 'appointments' : 'vaccinations') || '[]');
+            const record = records.find(r => r.id === id);
+
+            if (record) {
+                const message = document.getElementById('reminderMessage').value
+                    .replace('[Parent]', record.parentName || 'Parent')
+                    .replace('[Child]', record.childName)
+                    .replace('[Type]', type === 'appointment' ? 'appointment' : 'vaccination')
+                    .replace('[Doctor]', type === 'appointment' ? record.doctor : 'vaccination schedule')
+                    .replace('[Time]', `${record.time} on ${record.date}`);
+                
+                alert(`Reminder sent to ${type === 'appointment' ? record.parentContact : record.phone}`);
+            }
+        }
+
+        function loadNewborns() {
+            const newborns = JSON.parse(localStorage.getItem('newborns') || '[]');
+            const container = document.querySelector('.newborns-grid');
+            
+            container.innerHTML = newborns.map(newborn => `
+                <div class="newborn-card">
+                    <div class="newborn-header">
+                        <h3>${newborn.name}</h3>
+                        <span class="badge bg-info">${calculateAge(newborn.dateOfBirth)}</span>
+                    </div>
+                    <div class="newborn-details">
+                        <p><i class="fas fa-birthday-cake"></i> ${new Date(newborn.dateOfBirth).toLocaleDateString()}</p>
+                        <p><i class="fas fa-venus-mars"></i> ${newborn.gender}</p>
+                        <p><i class="fas fa-tint"></i> ${newborn.bloodGroup || 'Not specified'}</p>
+                        <p><i class="fas fa-weight"></i> ${newborn.weight}kg</p>
+                    </div>
+                    <div class="newborn-actions">
+                        <button class="btn btn-sm btn-info" onclick="editNewborn(${newborn.id})">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm btn-primary" onclick="viewVaccinations(${newborn.id})">
+                            <i class="fas fa-syringe"></i> Vaccinations
+                        </button>
+                        <button class="btn btn-sm btn-success" onclick="sendReminder(${newborn.id})">
+                            <i class="fas fa-bell"></i> Send Reminder
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function calculateAge(dateOfBirth) {
+            const birthDate = new Date(dateOfBirth);
+            const today = new Date();
+            const monthsDiff = (today.getFullYear() - birthDate.getFullYear()) * 12 + 
+                             (today.getMonth() - birthDate.getMonth());
+            
+            if (monthsDiff < 1) {
+                const daysDiff = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24));
+                return `${daysDiff} days old`;
+            } else if (monthsDiff < 12) {
+                return `${monthsDiff} months old`;
+            } else {
+                const years = Math.floor(monthsDiff / 12);
+                return `${years} year${years > 1 ? 's' : ''} old`;
+            }
+        }
+
+        function addNewborn() {
+            document.getElementById('newbornForm').reset();
+            const modal = new bootstrap.Modal(document.getElementById('newbornModal'));
+            modal.show();
+        }
+
+        function saveNewbornRecord() {
+            const formData = {
+                id: Date.now(),
+                name: document.getElementById('newbornName').value,
+                dateOfBirth: document.getElementById('dateOfBirth').value,
+                gender: document.getElementById('gender').value,
+                bloodGroup: document.getElementById('bloodGroup').value,
+                weight: document.getElementById('weight').value,
+                medicalNotes: document.getElementById('medicalNotes').value,
+                parentName: document.getElementById('parentName').value,
+                contactNumber: document.getElementById('contactNumber').value,
+                createdAt: new Date().toISOString(),
+                lastUpdated: new Date().toISOString()
+            };
+
+            let newborns = JSON.parse(localStorage.getItem('newborns') || '[]');
+            newborns.push(formData);
+            localStorage.setItem('newborns', JSON.stringify(newborns));
+
+            const modal = bootstrap.Modal.getInstance(document.getElementById('newbornModal'));
+            modal.hide();
+            loadNewborns();
+        }
+
+        // Add to your DOMContentLoaded event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... existing code ...
+            loadNewborns();
+
+            // Real-time search functionality
+            document.getElementById('newbornSearch').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const newborns = JSON.parse(localStorage.getItem('newborns') || '[]');
+                const filtered = newborns.filter(newborn => 
+                    newborn.name.toLowerCase().includes(searchTerm) ||
+                    newborn.parentName.toLowerCase().includes(searchTerm)
+                );
+                updateNewbornDisplay(filtered);
+            });
+
+            // Set up real-time updates
+            setInterval(() => {
+                loadAppointments();
+                loadVaccinations();
+                loadNewborns();
+            }, 30000); // Refresh every 30 seconds
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .dashboard-container {
+            padding: 2rem;
+            margin-top: 80px;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .staff-info {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .nav-tabs .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.1rem;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .dashboard-header {
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .filter-controls > * {
+            max-width: 200px;
+        }
+
+        .table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.1rem;
+        }
+
+        .table th {
+            font-weight: 700;
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            margin: 0 0.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+            }
+
+            .filter-controls > * {
+                max-width: 100%;
+            }
+        }
+
+        .modal-title {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .form-label {
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.1rem;
+        }
+
+        .newborns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .newborn-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .newborn-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .newborn-details {
+            margin-bottom: 1rem;
+        }
+
+        .newborn-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .newborn-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        #vaccinationSchedule {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</body>
+</html> 

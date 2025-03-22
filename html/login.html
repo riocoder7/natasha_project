@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Kids Medical Center</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ... existing styles ... */
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .login-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .button-text {
+            font-weight: 600;
+        }
+        /* ... existing styles ... */
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <a href="index.html" class="home-button">🏠 Home</a>
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Welcome! ☀️</h1>
+                <div class="character-container">
+                    <div class="character baby-character">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="var(--primary-color)"/>
+                        </svg>
+                    </div>
+                    <div class="character hospital-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" fill="var(--primary-color)"/>
+                        </svg>
+                    </div>
+                    <div class="character palette-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10c1.38 0 2.5-1.12 2.5-2.5 0-.61-.23-1.2-.64-1.67-.08-.1-.13-.21-.13-.33 0-.28.22-.5.5-.5H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9zm-5.5 10c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="var(--primary-color)"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <form class="login-form" id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="email">👤 Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" class="form-control" required>
+                    <div class="invalid-feedback">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="password">🔒 Password <span class="required">*</span></label>
+                    <div class="password-input-group">
+                        <input type="password" id="password" class="form-control" required>
+                        <button type="button" class="password-toggle" tabindex="-1">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="invalid-feedback">Please enter your password</div>
+                </div>
+                <div class="role-selection">
+                    <div class="role-option">
+                        <input type="radio" id="parent" name="role" value="parent" required>
+                        <label for="parent">👨‍👩‍👧‍👦 Parent/Guardian</label>
+                    </div>
+                    <div class="role-option">
+                        <input type="radio" id="clinic" name="role" value="clinic" required>
+                        <label for="clinic">🏥 Clinic Staff</label>
+                    </div>
+                    <div class="invalid-feedback">Please select a role</div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="login-btn" id="loginButton">
+                        <span class="button-text">Login</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status"></span>
+                    </button>
+                </div>
+            </form>
+            <div class="login-footer">
+                <a href="create-account.html" class="create-account">🌈 Create an Account</a>
+                <span>|</span>
+                <a href="forgot-password.html" class="forgot-password">✨ Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Reset previous validation states
+            this.classList.remove('was-validated');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const role = document.querySelector('input[name="role"]:checked');
+            
+            // Validate inputs
+            let isValid = true;
+            
+            if (!validateEmail(email.value)) {
+                email.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                email.classList.remove('is-invalid');
+                email.classList.add('is-valid');
+            }
+
+            if (!password.value) {
+                password.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                password.classList.remove('is-invalid');
+                password.classList.add('is-valid');
+            }
+
+            if (!role) {
+                document.querySelector('.role-selection .invalid-feedback').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.role-selection .invalid-feedback').style.display = 'none';
+            }
+
+            if (!isValid) return;
+
+            // Show loading state
+            const button = document.getElementById('loginButton');
+            button.disabled = true;
+            button.querySelector('.button-text').textContent = 'Logging in...';
+            button.querySelector('.spinner-border').classList.remove('d-none');
+
+            try {
+            
+                
+                // Redirect based on role
+                if (role.value === 'clinic') {
+                    window.location.href = 'staff-dashboard.html';
+                } else {
+                    window.location.href = 'parent-dashboard.html';
+                }
+            } catch (error) {
+                alert('Login failed. Please try again.');
+            } finally {
+                button.disabled = false;
+                button.querySelector('.button-text').textContent = 'Login';
+                button.querySelector('.spinner-border').classList.add('d-none');
+            }
+        });
+
+        // Password visibility toggle
+        document.querySelector('.password-toggle').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+    </script>
+</body>
+</html> 

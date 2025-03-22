@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - KidsCare Pediatric Clinic</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>KidsCare</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="vaccination.html">Vaccination</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="login.html" class="nav-login-btn">👋 Login</a>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="faqs-page">
+        <div class="container">
+            <h1 class="text-center mb-5">❓ Frequently Asked Questions</h1>
+            
+            <!-- General Questions -->
+            <div class="faq-category mb-5">
+                <h2><i class="fas fa-info-circle"></i> General Information</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            <span>What are your clinic hours?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq1" class="collapse faq-answer">
+                            <p>Our clinic is open Monday to Saturday from 9:00 AM to 8:00 PM. Emergency services are available 24/7.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            <span>What age groups do you treat?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq2" class="collapse faq-answer">
+                            <p>We provide care for children from birth through adolescence (0-18 years). This includes:</p>
+                            <ul>
+                                <li>Newborn care</li>
+                                <li>Infant check-ups</li>
+                                <li>Toddler health</li>
+                                <li>School-age children</li>
+                                <li>Teenage healthcare services</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments -->
+            <div class="faq-category mb-5">
+                <h2><i class="fas fa-calendar-check"></i> Appointments</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            <span>Do you accept walk-in patients?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq3" class="collapse faq-answer">
+                            <p>While we recommend scheduling appointments, we do accept walk-in patients for urgent cases. However, priority is given to patients with scheduled appointments.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            <span>How can I schedule an appointment?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq4" class="collapse faq-answer">
+                            <p>You can schedule an appointment through:</p>
+                            <ul>
+                                <li>Our online booking system</li>
+                                <li>Calling our clinic at 9876543210</li>
+                                <li>Visiting our clinic in person</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vaccinations -->
+            <div class="faq-category mb-5">
+                <h2><i class="fas fa-syringe"></i> Vaccinations</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            <span>How do I schedule a vaccination?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq5" class="collapse faq-answer">
+                            <p>You can schedule vaccinations through our online booking system or by calling our clinic. We'll help you plan your child's vaccination schedule according to the recommended timeline.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            <span>What vaccines do you offer?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq6" class="collapse faq-answer">
+                            <p>We offer all recommended childhood vaccines including:</p>
+                            <ul>
+                                <li>BCG</li>
+                                <li>DPT</li>
+                                <li>MMR</li>
+                                <li>Polio</li>
+                                <li>Hepatitis A & B</li>
+                                <li>And more</li>
+                            </ul>
+                            <p>Check our vaccination page for the complete schedule.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insurance & Payments -->
+            <div class="faq-category mb-5">
+                <h2><i class="fas fa-credit-card"></i> Insurance & Payments</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                            <span>What insurance plans do you accept?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq7" class="collapse faq-answer">
+                            <p>We accept most major insurance plans and Mediclaim policies. Please contact our office for specific insurance-related queries.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                            <span>What payment methods do you accept?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq8" class="collapse faq-answer">
+                            <p>We accept:</p>
+                            <ul>
+                                <li>Cash</li>
+                                <li>Credit/Debit Cards</li>
+                                <li>UPI Payments</li>
+                                <li>Net Banking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- First Visit -->
+            <div class="faq-category mb-5">
+                <h2><i class="fas fa-clipboard-list"></i> First Visit</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                            <span>What should I bring for my child's first visit?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq9" class="collapse faq-answer">
+                            <p>Please bring:</p>
+                            <ul>
+                                <li>Previous medical records</li>
+                                <li>Vaccination history</li>
+                                <li>Insurance card</li>
+                                <li>Government ID</li>
+                                <li>List of current medications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                            <span>How long does a typical visit take?</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div id="faq10" class="collapse faq-answer">
+                            <p>A typical visit usually takes:</p>
+                            <ul>
+                                <li>Regular check-up: 20-30 minutes</li>
+                                <li>First visit: 45-60 minutes</li>
+                                <li>Vaccination: 15-20 minutes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>KidsCare Pediatric Clinic</h3>
+                <p>Providing quality healthcare for children since 2000</p>
+            </div>
+            <div class="footer-section text-center">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section text-center">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/KidsCarePediatric" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/KidsCarePedia" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/kidscare_pediatric" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/kidscare-pediatric" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KidsCare Pediatric Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .faqs-page {
+            padding: 6rem 2rem;
+            background-color: #f8f9fa;
+        }
+
+        .faq-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .faq-category h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .faq-category h2 i {
+            margin-right: 0.5rem;
+        }
+
+        .faq-container {
+            max-width: 100%;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1rem;
+            text-align: left;
+            background-color: white;
+            border: none;
+            font-weight: 500;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question i {
+            margin-left: 10px;
+            margin-right: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question span {
+            flex: 1;
+            text-align: left;
+        }
+
+        .faq-question[aria-expanded="true"] i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 1rem;
+            background-color: white;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-answer ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .faqs-page {
+                padding: 4rem 1rem;
+            }
+
+            .faq-category {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

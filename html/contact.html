@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - KidsCare Pediatric Clinic</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1 style="font-family: 'Comic Neue', cursive; font-size: 2.5rem; color: #ff4500;">Kids Care Clinic</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="vaccination.html">Vaccination</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="login.html" class="nav-login-btn">👋 Login</a>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <!-- Address Card -->
+                    <div class="contact-card mb-4">
+                        <div class="card text-center p-4">
+                            <div class="card-icon mb-3">
+                                <i class="fas fa-map-marker-alt fa-3x" style="color: #ff4500;"></i>
+                            </div>
+                            <h3 class="card-title">Address</h3>
+                            <p class="card-text">
+                                201, Sunshine Tower, Senapati Bapat Marg<br>
+                                Lower Parel, Mumbai 400013
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="contact-card mb-4">
+                        <div class="card text-center p-4">
+                            <div class="card-icon mb-3">
+                                <i class="fas fa-phone fa-3x" style="color: #ff4500;"></i>
+                            </div>
+                            <h3 class="card-title">Phone</h3>
+                            <p class="card-text">
+                                Emergency: 8010597649<br>
+                                Clinic: 9876543210
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="contact-card mb-4">
+                        <div class="card text-center p-4">
+                            <div class="card-icon mb-3">
+                                <i class="fas fa-envelope fa-3x" style="color: #ff4500;"></i>
+                            </div>
+                            <h3 class="card-title">Email</h3>
+                            <p class="card-text">
+                                kidscareclinic2024@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .contact {
+            min-height: calc(100vh - 300px);
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .contact-card .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-card .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: 'Comic Neue', cursive;
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card-text {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .footer h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer p, .footer ul li a {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>KidsCare Pediatric Clinic</h3>
+                <p>Providing quality healthcare for children since 2000</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="vaccination.html">Vaccination</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KidsCare Pediatric Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

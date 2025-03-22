@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    ht<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Documents - KidsCare Pediatric Clinic</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .documents-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 2rem;
+        }
+
+        .documents-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .upload-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--primary-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background: rgba(var(--primary-color-rgb), 0.05);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .document-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .document-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .document-info {
+            margin-top: 1rem;
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .view-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .upload-progress {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .document-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(var(--primary-color-rgb), 0.1);
+            color: var(--primary-color);
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        #uploadInput {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Kids Care Clinic</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="vaccination.html">Vaccination</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="login.html" class="nav-login-btn">👋 Login</a>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="documents-container">
+        <div class="documents-header">
+            <h2>📄 Secure Document Management</h2>
+            <p class="lead">Safely store and access your medical documents</p>
+        </div>
+
+        <div class="upload-section">
+            <h3>Upload Documents</h3>
+            <div class="form-group mb-3">
+                <label for="documentType">Document Type:</label>
+                <select class="form-control" id="documentType" required>
+                    <option value="">Select Document Type</option>
+                    <option value="vaccination">Vaccination Record/Proof</option>
+                    <option value="lab">Lab Report</option>
+                    <option value="prescription">Prescription</option>
+                    <option value="other">Other Medical Document</option>
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label for="childName">Child's Name:</label>
+                <input type="text" class="form-control" id="childName" required>
+            </div>
+            <div class="form-group mb-3 vaccination-details" style="display: none;">
+                <label for="vaccineName">Vaccine Name:</label>
+                <input type="text" class="form-control" id="vaccineName">
+                <label for="vaccineDate">Vaccination Date:</label>
+                <input type="date" class="form-control" id="vaccineDate">
+                <label for="vaccineLocation">Vaccination Location:</label>
+                <input type="text" class="form-control" id="vaccineLocation" placeholder="Name of clinic/hospital">
+            </div>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="uploadInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h4>Drag & Drop Files Here</h4>
+                <p>or click to select files</p>
+                <p class="text-muted">Supported formats: PDF, DOC, DOCX, JPG, PNG</p>
+            </div>
+            <div class="upload-progress">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+                <p class="mt-2 text-center" id="uploadStatus"></p>
+            </div>
+        </div>
+
+        <div class="documents-list">
+            <h3>Your Documents</h3>
+            <div class="documents-grid" id="documentsGrid">
+                <!-- Documents will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Document Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="previewContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        // Google Drive API Configuration
+        const CLIENT_ID = '864469784389-jmqt251bcsbda66vvhksddnd85v4df0u.apps.googleusercontent.com';
+        const API_KEY = 'AIzaSyCglntOL29O0xeUVvs-i6d9tRBcsKGAo-4';
+        const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
+        const SCOPES = 'https://www.googleapis.com/auth/drive.file';
+
+        // Initialize the Google Drive API
+        function initializeGoogleDrive() {
+            gapi.client.init({
+                apiKey: API_KEY,
+                discoveryDocs: DISCOVERY_DOCS,
+            }).then(() => {
+                // Initialize Google Identity Services
+                tokenClient = google.accounts.oauth2.initTokenClient({
+                    client_id: CLIENT_ID,
+                    scope: SCOPES,
+                    callback: handleAuthResult
+                });
+                
+                // Try to authorize
+                tokenClient.requestAccessToken();
+            });
+        }
+
+        function handleAuthResult(tokenResponse) {
+            if (tokenResponse && !tokenResponse.error) {
+                // Access granted, load documents
+                loadDocuments();
+            } else {
+                console.error('Authorization error:', tokenResponse.error);
+                alert('Please authorize the application to access Google Drive.');
+            }
+        }
+
+        // Handle file upload
+        document.getElementById('uploadArea').addEventListener('click', () => {
+            document.getElementById('uploadInput').click();
+        });
+
+        document.getElementById('uploadArea').addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            e.currentTarget.classList.add('dragover');
+        });
+
+        document.getElementById('uploadArea').addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            e.currentTarget.classList.remove('dragover');
+        });
+
+        document.getElementById('uploadArea').addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            e.currentTarget.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        document.getElementById('uploadInput').addEventListener('change', (e) => {
+            const files = e.target.files;
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                uploadFile(file);
+            });
+        }
+
+        // Add event listener for document type selection
+        document.getElementById('documentType').addEventListener('change', function() {
+            const vaccinationDetails = document.querySelector('.vaccination-details');
+            if (this.value === 'vaccination') {
+                vaccinationDetails.style.display = 'block';
+            } else {
+                vaccinationDetails.style.display = 'none';
+            }
+        });
+
+        // Add function to check for pending uploads
+        function checkPendingUploads() {
+            const pendingUploads = JSON.parse(localStorage.getItem('pendingUploads') || '[]');
+            if (pendingUploads.length > 0) {
+                const uploadReminder = document.createElement('div');
+                uploadReminder.className = 'alert alert-info alert-dismissible fade show mt-3';
+                uploadReminder.innerHTML = `
+                    <h4 class="alert-heading">📝 Document Upload Reminder</h4>
+                    <p>You have pending documents to upload:</p>
+                    <ul>
+                        ${pendingUploads.map(upload => `
+                            <li>
+                                ${upload.type === 'vaccination' ? '💉' : '🏥'} 
+                                ${upload.type === 'vaccination' ? 
+                                    `Vaccination proof for ${upload.childName} - ${upload.vaccineName}` :
+                                    `Medical documents for ${upload.childName}'s appointment on ${new Date(upload.date).toLocaleDateString()}`
+                                }
+                                <button class="btn btn-sm btn-primary ms-2" onclick="prepareUpload('${JSON.stringify(upload).replace(/"/g, '&quot;')}')">
+                                    Upload Now
+                                </button>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.querySelector('.documents-header').appendChild(uploadReminder);
+            }
+        }
+
+        // Function to prepare upload form with pre-filled data
+        function prepareUpload(uploadDataStr) {
+            const uploadData = JSON.parse(uploadDataStr);
+            
+            // Set document type
+            const documentType = document.getElementById('documentType');
+            documentType.value = uploadData.type;
+            documentType.dispatchEvent(new Event('change'));
+
+            // Set child name
+            document.getElementById('childName').value = uploadData.childName;
+
+            // If it's a vaccination, fill in vaccination details
+            if (uploadData.type === 'vaccination') {
+                document.getElementById('vaccineName').value = uploadData.vaccineName;
+                document.getElementById('vaccineDate').value = uploadData.date;
+                document.getElementById('vaccineLocation').value = uploadData.location || '';
+            }
+
+            // Scroll to upload area
+            document.querySelector('.upload-area').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Function to remove pending upload after successful upload
+        function removePendingUpload(childName, type, date) {
+            const pendingUploads = JSON.parse(localStorage.getItem('pendingUploads') || '[]');
+            const updatedUploads = pendingUploads.filter(upload => 
+                !(upload.childName === childName && 
+                  upload.type === type && 
+                  upload.date === date)
+            );
+            localStorage.setItem('pendingUploads', JSON.stringify(updatedUploads));
+        }
+
+        // Modify the existing uploadFile function to handle pending uploads
+        async function uploadFile(file) {
+            const documentType = document.getElementById('documentType').value;
+            const childName = document.getElementById('childName').value;
+            
+            if (!documentType || !childName) {
+                alert('Please select document type and enter child\'s name');
+                return;
+            }
+
+            let description = `Document Type: ${documentType}\nChild: ${childName}`;
+            
+            if (documentType === 'vaccination') {
+                const vaccineName = document.getElementById('vaccineName').value;
+                const vaccineDate = document.getElementById('vaccineDate').value;
+                const vaccineLocation = document.getElementById('vaccineLocation').value;
+                
+                if (!vaccineName || !vaccineDate || !vaccineLocation) {
+                    alert('Please fill in all vaccination details');
+                    return;
+                }
+                
+                description += `\nVaccine: ${vaccineName}\nDate: ${vaccineDate}\nLocation: ${vaccineLocation}`;
+            }
+
+            const metadata = {
+                name: `${childName} - ${documentType} - ${file.name}`,
+                mimeType: file.type,
+                parents: ['13C8dGqeUtcJmHD_J4XvKKt7Dh_FJughG'],
+                description: description
+            };
+
+            try {
+                // Show progress
+                const progressBar = document.querySelector('.progress-bar');
+                const uploadProgress = document.querySelector('.upload-progress');
+                uploadProgress.style.display = 'block';
+
+                const form = new FormData();
+                form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+                form.append('file', file);
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart');
+                xhr.setRequestHeader('Authorization', 'Bearer ' + gapi.auth.getToken().access_token);
+
+                xhr.upload.onprogress = (event) => {
+                    if (event.lengthComputable) {
+                        const progress = (event.loaded / event.total) * 100;
+                        progressBar.style.width = progress + '%';
+                    }
+                };
+
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        const result = JSON.parse(xhr.responseText);
+                        addDocumentToGrid(result);
+                        uploadProgress.style.display = 'none';
+
+                        // Remove from pending uploads if successful
+                        removePendingUpload(childName, documentType, 
+                            documentType === 'vaccination' ? document.getElementById('vaccineDate').value : null);
+
+                        // Refresh pending uploads display
+                        checkPendingUploads();
+                    } else {
+                        throw new Error('Upload failed');
+                    }
+                };
+
+                xhr.send(form);
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                alert('Error uploading file. Please try again.');
+                document.querySelector('.upload-progress').style.display = 'none';
+            }
+        }
+
+        function addDocumentToGrid(file) {
+            const grid = document.getElementById('documentsGrid');
+            const card = document.createElement('div');
+            card.className = 'document-card';
+            
+            const documentType = document.getElementById('documentType').value;
+            const childName = document.getElementById('childName').value;
+            
+            let tags = '';
+            if (documentType === 'vaccination') {
+                const vaccineName = document.getElementById('vaccineName').value;
+                const vaccineDate = document.getElementById('vaccineDate').value;
+                tags = `
+                    <span class="tag">Vaccination Record</span>
+                    <span class="tag">${vaccineName}</span>
+                    <span class="tag">${new Date(vaccineDate).toLocaleDateString()}</span>
+                `;
+            } else {
+                tags = `<span class="tag">${documentType}</span>`;
+            }
+
+            card.innerHTML = `
+                <div class="document-icon">
+                    <i class="fas ${documentType === 'vaccination' ? 'fa-syringe' : 'fa-file-medical'} fa-2x"></i>
+                </div>
+                <div class="document-info">
+                    <h5>${childName}</h5>
+                    <p class="text-muted small mb-2">${file.name}</p>
+                    <div class="document-tags">
+                        ${tags}
+                    </div>
+                </div>
+                <div class="document-actions">
+                    <button class="action-btn view-btn" onclick="viewDocument('${file.id}')">
+                        <i class="fas fa-eye"></i> View
+                    </button>
+                    <button class="action-btn delete-btn" onclick="deleteDocument('${file.id}')">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
+            `;
+            grid.appendChild(card);
+        }
+
+        async function viewDocument(fileId) {
+            try {
+                const response = await gapi.client.drive.files.get({
+                    fileId: fileId,
+                    alt: 'media'
+                });
+                
+                const modal = new bootstrap.Modal(document.getElementById('previewModal'));
+                const previewContent = document.getElementById('previewContent');
+                
+                // Handle different file types
+                if (response.result.mimeType.includes('image')) {
+                    previewContent.innerHTML = `<img src="${response.result}" class="img-fluid">`;
+                } else if (response.result.mimeType.includes('pdf')) {
+                    previewContent.innerHTML = `<iframe src="${response.result}" width="100%" height="500px"></iframe>`;
+                } else {
+                    previewContent.innerHTML = `<div class="alert alert-info">Preview not available. <a href="${response.result}" target="_blank">Download</a> to view.</div>`;
+                }
+                
+                modal.show();
+            } catch (error) {
+                console.error('Error viewing document:', error);
+                alert('Error viewing document. Please try again.');
+            }
+        }
+
+        async function deleteDocument(fileId) {
+            if (confirm('Are you sure you want to delete this document?')) {
+                try {
+                    await gapi.client.drive.files.delete({
+                        fileId: fileId
+                    });
+                    // Remove the document card from the grid
+                    const card = document.querySelector(`[data-file-id="${fileId}"]`);
+                    if (card) card.remove();
+                } catch (error) {
+                    console.error('Error deleting document:', error);
+                    alert('Error deleting document. Please try again.');
+                }
+            }
+        }
+
+        // Load existing documents when the page loads
+        async function loadDocuments() {
+            try {
+                const response = await gapi.client.drive.files.list({
+                    q: "'YOUR_FOLDER_ID' in parents",
+                    fields: 'files(id, name, mimeType)',
+                    spaces: 'drive'
+                });
+
+                response.result.files.forEach(file => {
+                    addDocumentToGrid(file);
+                });
+            } catch (error) {
+                console.error('Error loading documents:', error);
+            }
+        }
+
+        // Initialize the page
+        window.onload = function() {
+            // Check if user is logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser || !currentUser.isLoggedIn) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Initialize Google Drive API
+            gapi.load('client', initializeGoogleDrive);
+
+            // Check for pending uploads
+            checkPendingUploads();
+        };
+    </script>
+</body>
+</html> 
