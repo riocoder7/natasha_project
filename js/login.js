@@ -14,6 +14,11 @@ const login_function = () => {
         // Validate inputs
         let isValid = true;
 
+        const validateEmail = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        };
+
         if (!validateEmail(email.value)) {
             email.classList.add('is-invalid');
             isValid = false;
@@ -60,7 +65,8 @@ const findUser = async () => {
         alert('Invalid email or password');
         return null;
     }
-
+   // Store user data in localStorage
+   localStorage.setItem('user', JSON.stringify(querySnapshot.docs[0].data()));
     return querySnapshot.docs[0].data(); // Return user data
 };
 
